@@ -42,6 +42,11 @@ def test_given_bay_return_item()
   
 end
 
+def test_given_item_return_bay()
+  assert_equal("b5", given_item_return_bay(@product_bay_list, "nail filer"))
+  
+end
+
 
 
 

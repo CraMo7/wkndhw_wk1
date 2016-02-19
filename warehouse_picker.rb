@@ -3,4 +3,5 @@ def given_bay_return_item(list_hash, bay_string)
   item = list_hash[bay]
 
   return item
-end  
+end
+
