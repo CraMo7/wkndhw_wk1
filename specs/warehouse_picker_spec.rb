@@ -2,7 +2,6 @@ require ("minitest/autorun")
 require_relative("../warehouse_picker.rb")
 
 class TestsWarehousePicker < MiniTest::Test
-
   def setup
     @product_bay_list = {
       b7: "bath fizzers",
@@ -38,10 +37,13 @@ class TestsWarehousePicker < MiniTest::Test
     }
   end
 
+def test_given_bay_return_item()
+  assert_equal("nail filer", given_bay_return_item(@product_bay_list, "b5"))
+  
+end
 
 
 
-    
 
 
 
