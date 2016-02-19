@@ -47,6 +47,11 @@ def test_given_item_return_bay()
   
 end
 
+  def test_given_bays_list_return_items_list_and_num_of_bays_apart()
+    assert_equal(["nail filer", "cookie jar", "tooth paste"], given_bays_list_return_items_list(@product_bay_list, "b5, b10, and b6"))
+    assert_equal(5, given_bays_list_return_bays_apart(@product_bay_list, "b5, b10, and b6"))
+  end
+
 
 
 

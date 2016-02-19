@@ -10,3 +10,13 @@ def given_item_return_bay(list_hash, item_string)
 
   return key
 end
+
+def given_bays_list_return_items_list(full_hash, list_of_bays)
+  
+  return list_of_items
+end
+
+def given_bays_list_return_bays_apart(full_hash, list_of_bays)
+  
+  return num_of_bays_apart_distance
+end
