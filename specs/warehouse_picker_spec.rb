@@ -37,20 +37,40 @@ class TestsWarehousePicker < MiniTest::Test
     }
   end
 
+##### => SINGLE BAY
+
+##### => 1
 def test_given_bay_return_item()
-  assert_equal("nail filer", given_bay_return_item(@product_bay_list, "b5"))
-  
+  assert_equal("nail filer", given_bay_return_item(@product_bay_list, :b5))
 end
 
+##### => 2
 def test_given_item_return_bay()
-  assert_equal("b5", given_item_return_bay(@product_bay_list, "nail filer"))
+  assert_equal(:b5, given_item_return_bay(@product_bay_list, "nail filer")) 
+end
+
+##### => MULTIPLE BAYS
+##### => 3
+def test_list_items_from_given_bays()
+  assert_equal(["nail filer", "cookie jar", "tooth paste"], list_items_from_given_bays(@product_bay_list, ["b5", "b10", "b6"]))
+end
+
+##### => 4
+def test_get_target_bays_list_from_products_list()
+  assert_equal([:c1, :c9, :c10], get_target_bays_list_from_products_list(@product_bay_list, ["shoe lace", "rusty nail", "leg warmers"]))
+end
+
+##### => 5
+def test_calc_bays_apart()
+  assert_equal()
   
 end
 
-  def test_given_bays_list_return_items_list_and_num_of_bays_apart()
-    assert_equal(["nail filer", "cookie jar", "tooth paste"], given_bays_list_return_items_list(@product_bay_list, "b5, b10, and b6"))
-    assert_equal(5, given_bays_list_return_bays_apart(@product_bay_list, "b5, b10, and b6"))
-  end
+##### => 6
+def test_find_bays_order_given_product_list()
+  assert_equal()
+  
+end
 
 
 
@@ -58,4 +78,7 @@ end
 
 
 
-end  
+
+
+
+end
