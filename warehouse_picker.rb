@@ -38,3 +38,10 @@ def calc_bays_apart(full_hash, list_of_bays)
   
   return num_bays_apart
 end
+
+# MISC - order bays entrance to exit - a10 - a1 - c1 - c10 - b1 - b10
+###### => a -> c -> b ----- a10-1, c1-10, b1-10
+def order_bays_array(bays_array)
+  
+  return ordered_bays
+end

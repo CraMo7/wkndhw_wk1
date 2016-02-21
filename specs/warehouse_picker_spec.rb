@@ -62,19 +62,21 @@ end
 
 ##### => 5
 def test_calc_bays_apart()
-  assert_equal()
+  assert_equal(28, calc_bays_apart(@product_bay_list, [:a1, :c10, :c1, :a10, :b8, :b2, :a5]))
   
 end
 
 ##### => 6
 def test_find_bays_order_given_product_list()
   assert_equal()
-  
 end
 
 
-
-
+##### => MISC - ordering bays array
+def test_order_bays_array()
+  assert_equal([:a10, :a7, :a2, :c3, :c8, :c9, :b3, :b9], order_bays_array([:b9, :b3, :c8, :c9, :a10, :c3, :a2, :a7]))
+  
+end
 
 
 
