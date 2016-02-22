@@ -58,30 +58,29 @@ def test_productslist_to_bayslist()
   assert_equal([:c9, :c1, :c10], productslist_to_bayslist(@bay_product_hash, ["shoe lace", "rusty nail", "leg warmers"]))
 end
 
-
-##### => 5 - 5 is given bays list, list items and calc furthest distance
-def test_
+##### => 5 - 5 is given bays, list items and calc distance
+# def test_
   
-end
+# end
 
 
-def test_calc_bays_apart()
-  assert_equal(28, calc_bays_apart([:a1, :c10, :c1, :a10, :b8, :b2, :a5]))
-  
-end
 
-##### => 6 - 6 is given products list, find bays and order in entrance to exi order
+##### => 6 - 6 is given products list, find bays and order in entrance to exit order
 # def test_find_bays_order_given_product_list()
 #   result = find_bays_sort_order(["shoe lace", "rusty nail", "leg warmers"])
 #   assert_equal([:c1, :c9, :c10], result)
 # end
 
 
-##### => MISC - ordering bays array
+##### => MISC - standalone tests for functions used in combination to answer #5 and #6
 def test_sort_bays_order()
   assert_equal([:a10, :a7, :a2, :c3, :c8, :c9, :b3, :b9], sort_bays_order([:b9, :b3, :c8, :c9, :a10, :c3, :a2, :a7]))
   
 end
 
+def test_calc_bays_apart()
+  assert_equal(28, calc_bays_apart([:a1, :c10, :c1, :a10, :b8, :b2, :a5]))
+  
+end
 
 end

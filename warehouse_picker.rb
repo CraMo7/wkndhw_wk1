@@ -44,13 +44,39 @@ end
 
 # 6
 def sort_bays_order(unordered_bays)
-  a_desc = []
-  c_asc = []
-  b_asc = []
 
+  #add a loop to filter through array to ensure values are strings and not symbols
 
+  a_bays_unsorted = []
+  c_bays_unsorted = []
+  b_bays_unsorted = []
 
+  #sorts full array of mixed bays into a, c and b bays in separate arrays
+  # I tried a for in loop, I tried to use the .each method, I've been messing with those for hours. Upon reverting to the less elegant while loop, this works exactly as I expect. I do not understand how to use for in loops or .each. "No implicit conversion from string to integer" is burned onto my eyelids. And now it even works with an array of symbols. I guess my implicit conversion of symbol to integer fix was unnecessary as well.
+  bay = 0
+  while bay < unordered_bays.length
+    if (unordered_bays[bay][0,1] == "a")
+      a_bays_unsorted.push(unordered_bays[bay])
+    elsif unordered_bays[bay][0,1] == "c"
+      c_bays_unsorted.push(unordered_bays[bay])
+    elsif unordered_bays[bay][0,1] == "b"
+      b_bays_unsorted.push(unordered_bays[bay])
+    end
+    bay += 1
+  end
 
+  #sorts a, c and b bays into appropriate orders (desc, asc and asc respectively) to follow the physical layout of the warehouse from entrance to exit
+  a_bays_descending_order = []
+  c_bays_ascending_order = []
+  b_bays_ascending_order = []
+
+  
+  
+
+  # ordered_bays << a_bays_descending_order << b_bays_ascending_order << c_bays_ascending_order
+  ordered_bays.push(a_bays_descending_order)
+  ordered_bays.push(c_bays_ascending_order)
+  ordered_bays.push(b_bays_ascending_order)
 
   return ordered_bays
 end
