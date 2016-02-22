@@ -3,7 +3,7 @@ require_relative("../warehouse_picker.rb")
 
 class TestsWarehousePicker < MiniTest::Test
   def setup
-    @bay_product_hash = {
+    @reference_hash = {
       b7: "bath fizzers",
       a3: "blouse",
       a7: "bookmark",
@@ -39,23 +39,23 @@ class TestsWarehousePicker < MiniTest::Test
 
 ##### => 1
 def test_bay_to_product()
-  assert_equal("nail filer", bay_to_product(@bay_product_hash, :b5))
+  assert_equal("nail filer", bay_to_product(@reference_hash, :b5))
 end
 
 ##### => 2
 def test_product_to_bay()
-  assert_equal(:b5, product_to_bay(@bay_product_hash, "nail filer")) 
+  assert_equal(:b5, product_to_bay(@reference_hash, "nail filer")) 
 end
 
 ##### => 3
 def test_bayslist_to_productslist()
-  assert_equal(["nail filer", "cookie jar", "tooth paste"], bayslist_to_productslist(@bay_product_hash, ["b5", "b10", "b6"]))
+  assert_equal(["nail filer", "cookie jar", "tooth paste"], bayslist_to_productslist(@reference_hash, ["b5", "b10", "b6"]))
 end
 
 ##### => 4
 ##### => 4 actually implied (implied by the examples given) that it wanted sorted bays, testing for that seperately
 def test_productslist_to_bayslist()
-  assert_equal([:c9, :c1, :c10], productslist_to_bayslist(@bay_product_hash, ["shoe lace", "rusty nail", "leg warmers"]))
+  assert_equal([:c9, :c1, :c10], productslist_to_bayslist(@reference_hash, ["shoe lace", "rusty nail", "leg warmers"]))
 end
 
 ##### => 5 - 5 is given bays, list items and calc distance
