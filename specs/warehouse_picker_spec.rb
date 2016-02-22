@@ -79,8 +79,7 @@ def test_sort_bays_order()
 end
 
 def test_calc_bays_apart()
-  assert_equal(28, calc_bays_apart([:a1, :c10, :c1, :a10, :b8, :b2, :a5]))
-  
+  assert_equal(28, calc_bays_apart(sort_bays_order([:a1, :c10, :c1, :a10, :b8, :b2, :a5])))
 end
 
 end

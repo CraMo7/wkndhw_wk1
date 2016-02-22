@@ -101,19 +101,30 @@ end
 
 def format_keys_add_leading_0(bays_list)
   #should change this so that it figures out what the longest key length is and makes all other keys that same length, current version is hard coded to make keys of length 2 ie :a3 into :a03 to match the maximum length in this dataset of 3 characters ie :a10
+  x = 0
   while x < bays_list.length
-  if bays_list[x].length == 2
-    bays_list[x].insert_at(1, "0")
+    bays_list[x] = bays_list[x].to_s
+    if bays_list[x].length == 2
+      bays_list[x].insert_at(1, "0")
+    end
+    bays_list[x] = bays_list[x].to_sym
+    x += 1
   end
   return bays_list
 end
 
 def format_keys_remove_leading_0(bays_list)
+  bays_list = bays_list
+  x = 0
   while x < bays_list.length
+    bays_list[x] = bays_list[x].to_s
     if bays_list[x][1,1] == "0"
       bays_list[x] = bays_list[x].delete_at(1)
-    end  
+    end
+    bays_list[x] = bays_list[x].to_sym
+    x += 1  
   end
+  return bays_list
 end
 
 
