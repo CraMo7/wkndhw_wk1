@@ -37,8 +37,6 @@ class TestsWarehousePicker < MiniTest::Test
     }
   end
 
-##### => SINGLE BAY
-
 ##### => 1
 def test_bay_to_product()
   assert_equal("nail filer", bay_to_product(@bay_product_hash, :b5))
@@ -49,16 +47,17 @@ def test_product_to_bay()
   assert_equal(:b5, product_to_bay(@bay_product_hash, "nail filer")) 
 end
 
-##### => MULTIPLE BAYS
 ##### => 3
 def test_bayslist_to_productslist()
   assert_equal(["nail filer", "cookie jar", "tooth paste"], bayslist_to_productslist(@bay_product_hash, ["b5", "b10", "b6"]))
 end
 
 ##### => 4
+##### => 4 actually implied (implied by the examples given) that it wanted sorted bays, testing for that seperately
 def test_productslist_to_bayslist()
-  assert_equal([:c1, :c9, :c10], productslist_to_bayslist(@bay_product_hash, ["shoe lace", "rusty nail", "leg warmers"]))
+  assert_equal([:c9, :c1, :c10], productslist_to_bayslist(@bay_product_hash, ["shoe lace", "rusty nail", "leg warmers"]))
 end
+
 
 ##### => 5 - 5 is given bays list, list items and calc furthest distance
 def test_
@@ -79,14 +78,10 @@ end
 
 
 ##### => MISC - ordering bays array
-def test_order_bays_array()
-  assert_equal([:a10, :a7, :a2, :c3, :c8, :c9, :b3, :b9], order_bays_array([:b9, :b3, :c8, :c9, :a10, :c3, :a2, :a7]))
+def test_sort_bays_order()
+  assert_equal([:a10, :a7, :a2, :c3, :c8, :c9, :b3, :b9], sort_bays_order([:b9, :b3, :c8, :c9, :a10, :c3, :a2, :a7]))
   
 end
-
-
-
-
 
 
 end

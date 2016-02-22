@@ -43,10 +43,29 @@ def calc_bays_apart(list_of_bays)
 end
 
 # 6
-def sort_bays_order(products_list)
+def sort_bays_order(unordered_bays)
+  a_desc = []
+  c_asc = []
+  b_asc = []
+
+
+
+
 
   return ordered_bays
 end
 
-# MISC - order bays entrance to exit - a10 - a1 - c1 - c10 - b1 - b10
-###### => a -> c -> b ----- a10-1, c1-10, b1-10
+
+
+
+# MISC bays entrance to exit order: a10-1, c1-10, b1-10
+
+
+
+
+
+
+
+
+
+
