@@ -3,7 +3,7 @@ require_relative("../warehouse_picker.rb")
 
 class TestsWarehousePicker < MiniTest::Test
   def setup
-    @product_bay_list = {
+    @bay_product_hash = {
       b7: "bath fizzers",
       a3: "blouse",
       a7: "bookmark",
@@ -40,36 +40,42 @@ class TestsWarehousePicker < MiniTest::Test
 ##### => SINGLE BAY
 
 ##### => 1
-def test_given_bay_return_item()
-  assert_equal("nail filer", given_bay_return_item(@product_bay_list, :b5))
+def test_bay_to_product()
+  assert_equal("nail filer", bay_to_product(@bay_product_hash, :b5))
 end
 
 ##### => 2
-def test_given_item_return_bay()
-  assert_equal(:b5, given_item_return_bay(@product_bay_list, "nail filer")) 
+def test_product_to_bay()
+  assert_equal(:b5, product_to_bay(@bay_product_hash, "nail filer")) 
 end
 
 ##### => MULTIPLE BAYS
 ##### => 3
-def test_list_items_from_given_bays()
-  assert_equal(["nail filer", "cookie jar", "tooth paste"], list_items_from_given_bays(@product_bay_list, ["b5", "b10", "b6"]))
+def test_bayslist_to_productslist()
+  assert_equal(["nail filer", "cookie jar", "tooth paste"], bayslist_to_productslist(@bay_product_hash, ["b5", "b10", "b6"]))
 end
 
 ##### => 4
-def test_get_target_bays_list_from_products_list()
-  assert_equal([:c1, :c9, :c10], get_target_bays_list_from_products_list(@product_bay_list, ["shoe lace", "rusty nail", "leg warmers"]))
+def test_productslist_to_bayslist()
+  assert_equal([:c1, :c9, :c10], productslist_to_bayslist(@bay_product_hash, ["shoe lace", "rusty nail", "leg warmers"]))
 end
 
-##### => 5
-def test_calc_bays_apart()
-  assert_equal(28, calc_bays_apart(@product_bay_list, [:a1, :c10, :c1, :a10, :b8, :b2, :a5]))
+##### => 5 - 5 is given bays list, list items and calc furthest distance
+def test_
   
 end
 
-##### => 6
-def test_find_bays_order_given_product_list()
-  assert_equal()
+
+def test_calc_bays_apart()
+  assert_equal(28, calc_bays_apart([:a1, :c10, :c1, :a10, :b8, :b2, :a5]))
+  
 end
+
+##### => 6 - 6 is given products list, find bays and order in entrance to exi order
+# def test_find_bays_order_given_product_list()
+#   result = find_bays_sort_order(["shoe lace", "rusty nail", "leg warmers"])
+#   assert_equal([:c1, :c9, :c10], result)
+# end
 
 
 ##### => MISC - ordering bays array

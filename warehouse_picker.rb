@@ -1,6 +1,6 @@
 # 1
 # takes in a hash of bay IDs and their contents, and a bay ID. Returns the name of the item in a given bay.
-def given_bay_return_item(list_hash, bay_string)
+def bay_to_product(list_hash, bay_string)
   bay = bay_string.to_sym
   item = list_hash[bay]
   return item
@@ -8,14 +8,15 @@ end
 
 # 2
 # takes in a hash of bay IDs and their contents, and an item name. Returns the bay ID where the given item is found.
-def given_item_return_bay(list_hash, item_string)
+def product_to_bay(list_hash, item_string)
   key = list_hash.key(item_string)
   return key
 end
 
 # 3
-# 
-def list_items_from_given_bays(full_hash, list_of_bays)
+# takes an array of bays (hash keys, either as symbols ie. :b10 or as simple strings ie. "b10") and returns an array containing strings naming the bays' respective contents
+# does not alter the original reference hash, but must refer to it
+def bayslist_to_productslist(full_hash, list_of_bays)
   list_of_items = []
   for bays in list_of_bays
     list_of_items.push(full_hash[bays.to_sym])
@@ -24,24 +25,28 @@ def list_items_from_given_bays(full_hash, list_of_bays)
 end
 
 # 4
-def get_target_bays_list_from_products_list(full_hash, list_of_items)
+# takes an array of strings of product names, and returns an array of the bays those products can be found in.
+# Returned array's contents are Symbol datatype.
+# does not alter the original reference hash, but must refer to it
+def productslist_to_bayslist(full_hash, list_of_items)
   bays_list = []
   for product in list_of_items
-    ##### => ADD SORTING - so that bays list array is returned in ascending order to match spec.
     bays_list.push(full_hash.key(product))
   end
   return bays_list
 end
 
 # 5
-def calc_bays_apart(full_hash, list_of_bays)
+def calc_bays_apart(list_of_bays)
   
   return num_bays_apart
 end
 
-# MISC - order bays entrance to exit - a10 - a1 - c1 - c10 - b1 - b10
-###### => a -> c -> b ----- a10-1, c1-10, b1-10
-def order_bays_array(bays_array)
-  
+# 6
+def sort_bays_order(products_list)
+
   return ordered_bays
 end
+
+# MISC - order bays entrance to exit - a10 - a1 - c1 - c10 - b1 - b10
+###### => a -> c -> b ----- a10-1, c1-10, b1-10
